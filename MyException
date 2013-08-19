@@ -1,0 +1,8 @@
+public class MyException extends Throwable {
+	private static final long serialVersionUID = 1L;
+
+	public MyException(){
+		System.out.print(System.err.getClass() +" Error!");
+	}
+	
+}
