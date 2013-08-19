@@ -17,7 +17,6 @@ public class FileProcess {
 	}
 	
 	private List<HistoricalPrice> objList =new ArrayList<HistoricalPrice>(); 
-//	private List<String> objName = new ArrayList<String>();
 	public void process() {
 		boolean title = true;
 
@@ -34,17 +33,10 @@ public class FileProcess {
 					if (title){
 						for (int i = 0; i < lineArray.length-1; i++){
 							objList.add(new HistoricalPrice(lineArray[i+1]));
-//							objName.add(lineArray[i+1]);
 						}
 						title = false;
 					}else{
-//						String[] dateArray = lineArray[0].split("/");
-//						@SuppressWarnings("deprecation")
 						Date date = format.parse(lineArray[0]);
-//						System.out.println(date);
-//						Date date = new Date(Integer.valueOf(dateArray[2]),
-//												Integer.valueOf(dateArray[0]),
-//												Integer.valueOf(dateArray[1]));
 						for(int i=0;i<lineArray.length-1;i++){
 							objList.get(i).add(new Price(date,Double.valueOf(lineArray[i+1])));
 						}	
@@ -52,11 +44,9 @@ public class FileProcess {
 				}
 			}
 			for(int i=0;i<objList.size();i++){
-//				System.out.println(objName.get(i));
 				objList.get(i).maxOfYear();
 				objList.get(i).minOfYear();
 			}
-//			write();
 			in.close();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -67,7 +57,6 @@ public class FileProcess {
 		try {
 			PrintWriter output = new PrintWriter(".//price_of_the_year.txt");
 			for(int i=0;i<objList.size();i++){
-//				output.println(objName.get(i));
 				objList.get(i).maxOfYear();
 				objList.get(i).minOfYear();
 			}
