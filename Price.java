@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public class Price {
-  private double record;
+  	private double record;
 	private Date date;
  
 	Price(Date date,double record){
